@@ -1,6 +1,6 @@
 # ns-3Dist
 ns3 Implemenation of new Dist
-
+burrDist.png
 this is an ns3 implemention of Burr Distribituion.
 
 
