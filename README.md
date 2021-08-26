@@ -1,6 +1,6 @@
 # ns-3Dist
 ns3 Implemenation of new Dist
-
+![alt text](https://github.com/AmirAshtariG/ns-3Dist/Burr/Simulation/samples/BurrsDistl=0.028 c=2.09 k=4.397.pngraw=true)
 this is an ns3 implemention of Burr Distribituion.
 
 
