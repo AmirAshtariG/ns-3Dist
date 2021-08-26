@@ -1,7 +1,7 @@
 # ns-3Dist
-ns3 Implemenation of new Dist
-![example of Dist](burrDist.png)
 this is an ns3 implemention of Burr Distribituion.
+![example of Dist](burrDist.png)
+
 
 
 ## Usage Example
