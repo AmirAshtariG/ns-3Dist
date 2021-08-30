@@ -15,7 +15,9 @@ some samples can be found in /Burr/Simulation/samples/
 Python scripts in order to simulate the Burr, ICDF in python and also genearted data from ns3 can be find in this folder.
 
 DistNs3 is class of Burr Distribution.
+
 ReadNs3 is Test file for reading the ns3 data set and plot them.
+
 BurrTest comprise of three Burr Implemenation and simulation
 
 ## ns3
