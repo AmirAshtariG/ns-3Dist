@@ -24,12 +24,6 @@
 #include <iostream>
 #include <fstream>
 
-// Default Network Topology
-//
-//       10.1.1.0
-// n0 -------------- n1
-//    point-to-point
-//
  
 using namespace ns3;
 
