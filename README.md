@@ -1,5 +1,5 @@
 # ns-3Dist
-this is an ns3 implemention of Burr Distribituion.
+this is an ns3 implemention of tLoc/Burr/Extreme Distribituion.
 ![example of Dist](burrDist.png)
 
 
