@@ -33,10 +33,22 @@ def Tloc (v, loc, scale):
     u = np.random.rand()
     val1 = 0
     x = Vcalc(u, v)
-    for i in range(1, 9):
+    for i in range(1, 10):
         val1 += coef.coef(i, v) * np.power(x, 2 * i + 1)
+        print(val1)
+    print((val1 + x) * scale + loc)
     return (val1 + x) * scale + loc
 
+
+def Tloc2 (v, loc, scale):
+    u = np.random.rand()
+    val1 = 0
+    x = VcalcLargeN(u, v)
+    for i in range(1, 10):
+        val1 += coef.coef(i, v) * np.power(x, 2 * i + 1)
+      #  print("val in loop is :", val1)
+  #  print((val1 + x) * scale + loc)
+    return (val1 + x) * scale + loc
 
 def gamma(n):
     if n < 2:
@@ -48,6 +60,13 @@ def gamma(n):
 def Vcalc(u, n):
     x = gamma(n/2) / gamma((n+1)/2)
     val = (u - 0.5) * x * np.power((n * np.pi), 0.5)
+
+    return val
+
+
+def VcalcLargeN (u, n):
+    x = (1 + (1/4 * n) + (1/32 * np.power(n, 2)) - 5/128 * np.power(n, 3) - 21/2048 * np.power(n, 4))
+    val = (u - 0.5) * x * np.power((2 * np.pi), 0.5)
 
     return val
 
@@ -68,7 +87,13 @@ def dataGen(dim, randNum, size, fun, param1, param2, param3):
             hist[int(rnd)] += 1
     elif fun == "tloc":
         for i in range(0, randNum):
-            rnd = dim * Tloc(param1, param2, param3) + size/2
+            rnd = dim * Tloc(param1, param2, param3) + size/ 2
+            if rnd >= size:
+                continue
+            hist[int(rnd)] += 1
+    elif fun == "tloc2":
+        for i in range(0, randNum):
+            rnd = dim * Tloc2(param1, param2, param3) + size / 2
             if rnd >= size:
                 continue
             hist[int(rnd)] += 1
