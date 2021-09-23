@@ -1929,11 +1929,11 @@ tLocRandomVariable::GetValue (double v, double loc, double scale)
   for (uint8_t i = 1; i <= 9; i++)
   {
     r += std::pow(x, 2 * i + 1) * coef(i, v);
- //   NS_LOG_UNCOND("r value in the loop is:" << r);
+//NS_LOG_UNCOND("r value in the loop is:" << r);
   }
 
  // r = (r + x) * scale + loc;
- // NS_LOG_UNCOND("r value is:" << r);
+//  NS_LOG_UNCOND("r value is:" << r);
   
   return (r + x) * scale + loc;
 }
@@ -1978,8 +1978,18 @@ tLocRandomVariable::Vcalc (double u, double n)
   double x = 0;
   double v = 0;
   
-  x = (1 + 1/4 * n) + (1/32 * std::pow(n, 2)) - (5/128 * std::pow(n, 3)) - (21/ 2048 * std::pow (n,4));
+  // if (n <= 5)
+  // {
+  //   x = gamma(n/2) / gamma ((n+1)/2);
+  //   v = (u - 0.5) * x * std::pow((n * M_PI), 0.5);
+  // }
+  // else
+  // {
+  x = (1.0 + (1/(4 * n)) + (0.03125 / std::pow(n, 2)) - (0.039 /std::pow(n, 3)) - (0.0102 / std::pow (n,4)));
+//  NS_LOG_UNCOND("VALUE x IN vCALC IS:"<< x);
   v = (u - 0.5) * x * std::pow((2 * M_PI), 0.5);
+//  NS_LOG_UNCOND("VALUE IN vCALC IS:"<< v);
+//  }
   
   return v;
 }
@@ -2030,7 +2040,7 @@ tLocRandomVariable:: coef(double i, double n)
   }
   else
   {
-    NS_LOG_ERROR(" INvalid Coef Index");
+  //  NS_LOG_ERROR(" INvalid Coef Index");
   }
   //NS_LOG_UNCOND("V value is:" << val << "where i is:" << (double) i);
   return val;
