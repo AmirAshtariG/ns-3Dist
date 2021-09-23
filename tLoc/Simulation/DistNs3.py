@@ -43,11 +43,12 @@ def Tloc (v, loc, scale):
 def Tloc2 (v, loc, scale):
     u = np.random.rand()
     val1 = 0
-    x = VcalcLargeN(u, v)
+    x = VcalcLargeN(0.01, v)
+  #  print("vclac val is:", x)
     for i in range(1, 10):
         val1 += coef.coef(i, v) * np.power(x, 2 * i + 1)
-      #  print("val in loop is :", val1)
-  #  print((val1 + x) * scale + loc)
+    #    print("val in loop is :", val1)
+    # print((val1 + x) * scale + loc)
     return (val1 + x) * scale + loc
 
 def gamma(n):
@@ -65,7 +66,8 @@ def Vcalc(u, n):
 
 
 def VcalcLargeN (u, n):
-    x = (1 + (1/4 * n) + (1/32 * np.power(n, 2)) - 5/128 * np.power(n, 3) - 21/2048 * np.power(n, 4))
+    x = (1 + (1/(4 * n)) + (1/32 * np.power(n, 2)) - 5/128 * np.power(n, 3) - 21/2048 * np.power(n, 4))
+   # print("x val is ", x)
     val = (u - 0.5) * x * np.power((2 * np.pi), 0.5)
 
     return val
